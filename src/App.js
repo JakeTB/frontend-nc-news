@@ -1,12 +1,12 @@
 import React from "react";
-import logo from "./logo.svg";
+
 import "./App.css";
 import { Router } from "@reach/router";
 import Home from "./Components/Home";
 import Header from "./Components/Header";
 import Navigation from "./Components/Navigation";
 import Articles from "./Components/Articles";
-import Topics from "./Components/Topics";
+import SingleArticle from "./Components/SingleArticle";
 
 function App() {
   return (
@@ -20,8 +20,9 @@ function App() {
 
       <Router>
         <Home path="/" />
-        <Articles path="/articles/" />
+        <Articles path="/articles/*" />
         <Articles path="/articles/:topic_id" />
+        <SingleArticle path="/articles/singleArticle/:id" />
       </Router>
     </div>
   );
