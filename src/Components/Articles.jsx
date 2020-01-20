@@ -15,13 +15,15 @@ class Articles extends Component {
       });
   }
   componentDidUpdate(prevProps, prevState) {
-    const { topic } = this.props;
-    if (topic !== prevProps.topic) {
-      console.log(topic);
+    const { topic_id } = this.props;
+
+    if (topic_id !== prevProps.topic_id) {
+      let topic = topic_id;
+      console.log(topic_id, "<<<topicId", prevProps.topic_id, "<<<<prevProprs");
       axios
-        .get(
-          `https://backendreviewv2.herokuapp.com/api/articles?topic=${topic}`
-        )
+        .get(`https://backendreviewv2.herokuapp.com/api/articles`, {
+          params: { topic }
+        })
         .then(({ data: { articles } }) => {
           console.log(articles);
           this.setState({ articles });
