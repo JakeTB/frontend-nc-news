@@ -1,11 +1,26 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class ArticleComments extends Component {
+  state = {
+    comments: []
+  };
+
   componentDidMount() {
-    console.log("Mounted article comments");
+    const { article_id } = this.props;
+    axios
+      .get(
+        `https://backendreviewv2.herokuapp.com/api/articles/${article_id}/comments`
+      )
+      .then(({ data: { comments } }) => {
+        console.log(comments);
+        this.setState({ comments });
+      });
   }
   render() {
-    return <div></div>;
+    const { comments } = this.setState;
+    console.log(comments);
+    return <main></main>;
   }
 }
 

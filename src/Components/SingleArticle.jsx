@@ -19,10 +19,12 @@ class SingleArticle extends Component {
   render() {
     let { id } = this.props;
     const { singleArticle } = this.state;
-    const { title, body, votes, topic, author, created_at } = singleArticle;
-    console.log(singleArticle);
+    const { title, body, topic, author } = singleArticle;
     return (
       <div>
+        <Router>
+          <ArticleComments path="/comments" />
+        </Router>
         <h1>{title}</h1>
         <h3>
           Topic: {topic}

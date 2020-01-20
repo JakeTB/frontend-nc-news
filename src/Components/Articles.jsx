@@ -36,6 +36,7 @@ class Articles extends Component {
       <div>
         <Router>
           <SingleArticle path="/singleArticle/:article_id/" />
+          <SingleArticle path="/singleArticle/:article_id/*" />
         </Router>
         <h1>Articles</h1>
         <ul>
