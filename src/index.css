@@ -11,6 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+/*Home Page CSS - START*/
+.HomePage-Header {
+  font-size: 35px;
+}
+/*Home Page CSS - END*/
+/*Generic CSS - START*/
 .Header {
   font-size: 40px;
 }
+.NavigationBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+/*Generic CSS - END*/

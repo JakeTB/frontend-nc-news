@@ -5,11 +5,7 @@ class Home extends Component {
   render() {
     return (
       <main>
-        <ul>
-          <li>Articles</li>
-          <li>Users</li>
-          <li>Topics</li>
-        </ul>
+        <h1 className="HomePage-Header">Home Page</h1>
       </main>
     );
   }
