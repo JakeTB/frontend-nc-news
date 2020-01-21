@@ -19,12 +19,12 @@ class ArticlesVotes extends Component {
         {" "}
         <h1>Article Votes</h1>
         {articles.map(article => {
-          let { title, body, author, article_id } = article;
+          let { title, body, author, article_id, votes } = article;
 
           return (
             <main key={article_id}>
               <h3>
-                {title} Author:{author}
+                {title} Author:{author} Votes: {votes}
               </h3>
               <p>{body}</p>
             </main>

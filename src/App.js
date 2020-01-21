@@ -26,7 +26,7 @@ function App() {
         <Articles path="/articles/:topic_id" />
         <ArticlesVotes path="/articles/votes" />
         <ArticlesDate path="/articles/date" />
-        <SingleArticle path="/articles/singleArticle/:id" />
+        <SingleArticle path="/articles/singleArticle/:id/*" />
       </Router>
     </div>
   );

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link, Router } from "@reach/router";
 import ArticleComments from "./ArticleComments";
+import PostComment from "./PostComment";
 class SingleArticle extends Component {
   state = {
     singleArticle: {}
@@ -17,15 +18,11 @@ class SingleArticle extends Component {
       });
   }
   render() {
-    console.log("Test");
     let { id } = this.props;
     const { singleArticle } = this.state;
     const { title, body, topic, author } = singleArticle;
     return (
       <div>
-        <Router>
-          <ArticleComments path="/comments" />
-        </Router>
         <h1>{title}</h1>
         <h3>
           Topic: {topic}
@@ -37,6 +34,10 @@ class SingleArticle extends Component {
             <button>View Comments</button>
           </Link>
         </nav>
+        <Router>
+          <ArticleComments path="/comments/*" />
+          <PostComment path="/comments/postComment" />
+        </Router>
       </div>
     );
   }

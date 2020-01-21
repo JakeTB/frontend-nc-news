@@ -5,6 +5,7 @@ import { Router, Link } from "@reach/router";
 import SingleArticle from "./SingleArticle";
 import ArticlesVotes from "./ArticlesVotes";
 import ArticleDate from "./ArticleDate";
+import ArticleCard from "./ArticleCard";
 
 class Articles extends Component {
   state = {
@@ -52,15 +53,14 @@ class Articles extends Component {
           </Link>
         </nav>
         <ul>
-          {articles.map(article => {
-            let { article_id, title } = article;
+          {articles.map(({ title, author, body, article_id, votes }) => {
             return (
-              <Link
-                key={article_id}
-                to={`/articles/singleArticle/${article_id}`}
-              >
-                <li key={article_id}>{title}</li>
-              </Link>
+              <ArticleCard
+                title={title}
+                author={author}
+                body={body}
+                article_id={article_id}
+              />
             );
           })}
         </ul>
