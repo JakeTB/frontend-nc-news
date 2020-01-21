@@ -7,12 +7,19 @@ class VoteComments extends Component {
   };
   componentDidMount() {
     const { article_id, comment_id } = this.props;
+    console.log(this.props);
     axios
       .get(
         `https://backendreviewv2.herokuapp.com/api/articles/${article_id}/comments/`
       )
-      .then(({ data }) => {
-        console.log(d);
+      .then(({ data: { comments } }) => {
+        console.log(comments);
+        let correctComment = comments.filter(comment => {
+          if (comment.comment_id === comment_id) {
+            return comment;
+          }
+        });
+        console.log(correctComment);
       });
   }
   handleUpvote = event => {

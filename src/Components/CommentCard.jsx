@@ -8,6 +8,7 @@ class CommentCard extends Component {
   };
   render() {
     const { title, author, body, article_id, comment_id } = this.props;
+    console.log(article_id);
     const { votes } = this.state;
     return (
       <div>
@@ -17,7 +18,7 @@ class CommentCard extends Component {
           </h3>
           <h4>Votes: {votes}</h4>
           <p>{body}</p>
-          <VoteComments comment_id={comment_id} />
+          <VoteComments comment_id={comment_id} article_id={article_id} />
         </main>
       </div>
     );

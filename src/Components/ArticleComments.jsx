@@ -38,6 +38,7 @@ class ArticleComments extends Component {
               author={author}
               votes={votes}
               comment_id={comment_id}
+              article_id={id}
             />
           );
         })}
