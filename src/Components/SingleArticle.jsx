@@ -17,6 +17,7 @@ class SingleArticle extends Component {
       });
   }
   render() {
+    console.log("Test");
     let { id } = this.props;
     const { singleArticle } = this.state;
     const { title, body, topic, author } = singleArticle;

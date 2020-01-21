@@ -39,6 +39,13 @@ class Articles extends Component {
           <SingleArticle path="/singleArticle/:article_id/*" />
         </Router>
         <h1>Articles</h1>
+        <nav>
+          <Link to="/articles/date_created">
+            <button>Sort by date created</button>
+          </Link>
+
+          <button>Sort by votes</button>
+        </nav>
         <ul>
           {articles.map(article => {
             let { article_id, title } = article;

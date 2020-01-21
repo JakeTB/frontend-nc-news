@@ -18,9 +18,22 @@ class ArticleComments extends Component {
       });
   }
   render() {
-    const { comments } = this.setState;
-    console.log(comments);
-    return <main></main>;
+    const { comments } = this.state;
+    return (
+      <main>
+        {comments.map(comment => {
+          const { body, author, votes } = comment;
+          return (
+            <main>
+              <h3>
+                {author} Votes: {votes}
+              </h3>
+              <p>{body}</p>
+            </main>
+          );
+        })}
+      </main>
+    );
   }
 }
 

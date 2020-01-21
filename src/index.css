@@ -23,6 +23,6 @@ code {
 .NavigationBar {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: center;
 }
 /*Generic CSS - END*/
