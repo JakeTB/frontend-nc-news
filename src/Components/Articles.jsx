@@ -3,6 +3,8 @@ import axios from "axios";
 import { Router, Link } from "@reach/router";
 
 import SingleArticle from "./SingleArticle";
+import ArticlesVotes from "./ArticlesVotes";
+import ArticleDate from "./ArticleDate";
 
 class Articles extends Component {
   state = {
@@ -37,14 +39,17 @@ class Articles extends Component {
         <Router>
           <SingleArticle path="/singleArticle/:article_id/" />
           <SingleArticle path="/singleArticle/:article_id/*" />
+          <ArticlesVotes path="/votes" />
+          <ArticleDate path="/date" />
         </Router>
         <h1>Articles</h1>
         <nav>
-          <Link to="/articles/date_created">
+          <Link to="/articles/date">
             <button>Sort by date created</button>
           </Link>
-
-          <button>Sort by votes</button>
+          <Link to="/articles/votes">
+            <button>Sort by votes</button>
+          </Link>
         </nav>
         <ul>
           {articles.map(article => {

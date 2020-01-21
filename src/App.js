@@ -7,6 +7,8 @@ import Header from "./Components/Header";
 import Navigation from "./Components/Navigation";
 import Articles from "./Components/Articles";
 import SingleArticle from "./Components/SingleArticle";
+import ArticlesVotes from "./Components/ArticlesVotes";
+import ArticlesDate from "./Components/ArticleDate";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Home path="/" />
         <Articles path="/articles/*" />
         <Articles path="/articles/:topic_id" />
+        <ArticlesVotes path="/articles/votes" />
+        <ArticlesDate path="/articles/date" />
         <SingleArticle path="/articles/singleArticle/:id" />
       </Router>
     </div>
