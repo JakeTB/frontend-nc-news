@@ -9,6 +9,7 @@ import Articles from "./Components/Articles";
 import SingleArticle from "./Components/SingleArticle";
 import ArticlesVotes from "./Components/ArticlesVotes";
 import ArticlesDate from "./Components/ArticleDate";
+import ErrHandler from "./Components/ErrHandler";
 
 function App() {
   return (
@@ -23,10 +24,11 @@ function App() {
       <Router>
         <Home path="/" />
         <Articles path="/articles/*" />
-        <Articles path="/articles/:topic_id" />
-        <ArticlesVotes path="/articles/votes" />
-        <ArticlesDate path="/articles/date" />
+        <Articles path="/articles/topic/:topic_id" />
+
+        <Articles path="/articles/sort/:sort_by" />
         <SingleArticle path="/articles/singleArticle/:id/*" />
+        <ErrHandler default />
       </Router>
     </div>
   );

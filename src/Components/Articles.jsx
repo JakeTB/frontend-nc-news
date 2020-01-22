@@ -12,6 +12,8 @@ class Articles extends Component {
     articles: []
   };
   componentDidMount() {
+    console.log(this.props);
+    const sort_by = this.props;
     axios
       .get("https://backendreviewv2.herokuapp.com/api/articles/")
       .then(({ data: { articles } }) => {
@@ -19,6 +21,7 @@ class Articles extends Component {
       });
   }
   componentDidUpdate(prevProps, prevState) {
+    console.log(this.props);
     const { topic_id } = this.props;
 
     if (topic_id !== prevProps.topic_id) {

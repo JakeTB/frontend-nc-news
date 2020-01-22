@@ -4,12 +4,14 @@ import axios from "axios";
 class PostComment extends Component {
   state = {
     comment: "",
-    user: "jessjelly"
+    user: "jessjelly",
+    newComment: "",
+    commentPosted: false
   };
   hanldeSumbitClick = event => {
     event.preventDefault();
 
-    const { comment, user } = this.state;
+    const { comment, user, commentPosted } = this.state;
     const { id } = this.props;
 
     axios
@@ -18,7 +20,11 @@ class PostComment extends Component {
         { username: user, body: comment }
       )
       .then(response => {
-        console.log("hello");
+        this.setState({
+          newComment: comment,
+          commentPosted: true,
+          comment: ""
+        });
       });
   };
   hanldeComment = event => {
@@ -27,8 +33,11 @@ class PostComment extends Component {
     });
   };
   render() {
+    const { newComment, commentPosted, user } = this.state;
     return (
       <div>
+        {commentPosted && <h3>Author:{user}</h3>}
+        {commentPosted && <p>{newComment}</p>}
         <form name="postCommentForm">
           Post Comment{" "}
           <input type="text" name="comment" onChange={this.hanldeComment} />

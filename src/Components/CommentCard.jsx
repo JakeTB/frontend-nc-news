@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import VoteComments from "./VoteComments";
-import DeleteComments from "./DeleteComment";
+
 import axios from "axios";
 
 class CommentCard extends Component {
@@ -11,12 +11,10 @@ class CommentCard extends Component {
   };
   componentDidMount() {
     this.setState({ comment: this.props.comment });
-    console.log(this.state);
   }
   handleDelete = event => {
     const { comment_id, article_id } = this.props;
-    console.log("CLICKED");
-    console.log(this.props);
+
     axios
       .delete(
         `https://backendreviewv2.herokuapp.com/api/comments/${comment_id}`
@@ -27,7 +25,6 @@ class CommentCard extends Component {
             `https://backendreviewv2.herokuapp.com/api/articles/${article_id}/comments`
           )
           .then(({ data: { comments } }) => {
-            console.log(comments);
             this.setState({ comment: "", notDeleted: false });
           });
       });
@@ -40,11 +37,7 @@ class CommentCard extends Component {
     return (
       <div>
         <main key={article_id}>
-          {notDeleted && (
-            <h3>
-              Title:{title} Author:{author}
-            </h3>
-          )}
+          {notDeleted && <h3>Author:{author}</h3>}
 
           <p>{body}</p>
           {notDeleted && (

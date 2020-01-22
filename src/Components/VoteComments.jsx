@@ -7,7 +7,7 @@ class VoteComments extends Component {
   };
   componentDidMount() {
     const { article_id, comment_id } = this.props;
-    console.log("article_id", article_id);
+
     axios
       .get(
         `https://backendreviewv2.herokuapp.com/api/articles/${article_id}/comments/`
@@ -20,7 +20,6 @@ class VoteComments extends Component {
         });
         let votes = correctComment[0].votes;
         this.setState({ votes });
-        console.log("correctComment>>>", correctComment);
       });
   }
   handleUpvote = event => {

@@ -3,7 +3,9 @@ import axios from "axios";
 
 class UpvoteDownvote extends Component {
   state = {
-    votes: 0
+    votes: 0,
+    NotVotedUp: true,
+    NotVotedDown: true
   };
   componentDidMount() {
     const { article_id } = this.props;
@@ -33,12 +35,14 @@ class UpvoteDownvote extends Component {
   };
 
   render() {
-    const { votes } = this.state;
+    let { votes } = this.state;
     return (
       <div>
+        {votes > 0}
         <button onClick={this.handleUpvote} name="Upvote">
           Upvote
         </button>
+        {votes < 0}
         <button onClick={this.handleUpvote} name="Downvote">
           Downvote
         </button>
