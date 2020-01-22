@@ -4,7 +4,7 @@ import axios from "axios";
 class PostComment extends Component {
   state = {
     comment: "",
-    user: "jessejelly"
+    user: "jessjelly"
   };
   hanldeSumbitClick = event => {
     event.preventDefault();

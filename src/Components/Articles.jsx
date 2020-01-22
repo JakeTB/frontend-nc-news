@@ -56,6 +56,7 @@ class Articles extends Component {
           {articles.map(({ title, author, body, article_id, votes }) => {
             return (
               <ArticleCard
+                key={article_id}
                 title={title}
                 author={author}
                 body={body}

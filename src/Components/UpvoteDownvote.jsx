@@ -17,6 +17,7 @@ class UpvoteDownvote extends Component {
   handleUpvote = event => {
     const { name } = event.target;
     const { article_id } = this.props;
+
     axios
       .patch(
         `https://backendreviewv2.herokuapp.com/api/articles/${article_id}/`,

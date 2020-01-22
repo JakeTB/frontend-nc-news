@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "@reach/router";
 import CommentCard from "./CommentCard";
+import DeleteComments from "./DeleteComment";
 
 class ArticleComments extends Component {
   state = {
@@ -32,14 +33,17 @@ class ArticleComments extends Component {
         {comments.map(comment => {
           const { body, author, votes, comment_id } = comment;
           return (
-            <CommentCard
-              key={comment_id}
-              body={body}
-              author={author}
-              votes={votes}
-              comment_id={comment_id}
-              article_id={id}
-            />
+            <div>
+              <CommentCard
+                key={comment_id}
+                body={body}
+                author={author}
+                votes={votes}
+                comment_id={comment_id}
+                article_id={id}
+                comment={comment}
+              />
+            </div>
           );
         })}
       </main>
