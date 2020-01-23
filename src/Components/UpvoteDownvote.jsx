@@ -28,6 +28,8 @@ class UpvoteDownvote extends Component {
       .then(() => {
         this.setState(prevState => {
           return {
+            NotVotedUp: name === "Upvote" ? false : true,
+            NotVotedDown: name === "Downvote" ? false : true,
             votes: name === "Upvote" ? prevState.votes + 1 : prevState.votes - 1
           };
         });
@@ -35,15 +37,23 @@ class UpvoteDownvote extends Component {
   };
 
   render() {
-    let { votes } = this.state;
+    let { votes, NotVotedUp, NotVotedDown } = this.state;
+    console.log(this.state);
     return (
       <div>
-        {votes > 0}
-        <button onClick={this.handleUpvote} name="Upvote">
+        <button
+          onClick={this.handleUpvote}
+          disabled={NotVotedUp === false}
+          name="Upvote"
+        >
           Upvote
         </button>
-        {votes < 0}
-        <button onClick={this.handleUpvote} name="Downvote">
+
+        <button
+          onClick={this.handleUpvote}
+          disabled={NotVotedDown === false}
+          name="Downvote"
+        >
           Downvote
         </button>
         <h3>Votes:{votes}</h3>

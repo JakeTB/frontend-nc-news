@@ -3,7 +3,9 @@ import axios from "axios";
 
 class VoteComments extends Component {
   state = {
-    votes: 0
+    votes: 0,
+    NotVotedUp: true,
+    NotVotedDown: true
   };
   componentDidMount() {
     const { article_id, comment_id } = this.props;
@@ -19,6 +21,7 @@ class VoteComments extends Component {
           }
         });
         let votes = correctComment[0].votes;
+        console.log("VOTES", votes);
         this.setState({ votes });
       });
   }
@@ -35,6 +38,8 @@ class VoteComments extends Component {
       .then(() => {
         this.setState(prevState => {
           return {
+            NotVotedUp: name === "Upvote" ? false : true,
+            NotVotedDown: name === "Downvote" ? false : true,
             votes: name === "Upvote" ? prevState.votes + 1 : prevState.votes - 1
           };
         });
@@ -42,19 +47,21 @@ class VoteComments extends Component {
   };
 
   render() {
-    const { votes } = this.state;
+    let { votes, NotVotedUp, NotVotedDown } = this.state;
+
     return (
       <div>
         <button
           onClick={this.handleUpvote}
-          disabled={votes === 1}
+          disabled={NotVotedUp === false}
           name="Upvote"
         >
           Upvote
         </button>
+
         <button
           onClick={this.handleUpvote}
-          disabled={votes === -1}
+          disabled={NotVotedDown === false}
           name="Downvote"
         >
           Downvote

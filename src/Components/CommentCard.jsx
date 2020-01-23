@@ -7,27 +7,31 @@ import axios from "axios";
 class CommentCard extends Component {
   state = {
     comment: this.props.comment,
-    notDeleted: true
+    notDeleted: true,
+    username: "jessjelly"
   };
   componentDidMount() {
     this.setState({ comment: this.props.comment });
   }
   handleDelete = event => {
+    const { author } = this.state.comment;
+    const { username } = this.state;
     const { comment_id, article_id } = this.props;
-
-    axios
-      .delete(
-        `https://backendreviewv2.herokuapp.com/api/comments/${comment_id}`
-      )
-      .then(() => {
-        axios
-          .get(
-            `https://backendreviewv2.herokuapp.com/api/articles/${article_id}/comments`
-          )
-          .then(({ data: { comments } }) => {
-            this.setState({ comment: "", notDeleted: false });
-          });
-      });
+    if (username === author) {
+      axios
+        .delete(
+          `https://backendreviewv2.herokuapp.com/api/comments/${comment_id}`
+        )
+        .then(() => {
+          axios
+            .get(
+              `https://backendreviewv2.herokuapp.com/api/articles/${article_id}/comments`
+            )
+            .then(({ data: { comments } }) => {
+              this.setState({ comment: "", notDeleted: false });
+            });
+        });
+    }
   };
 
   render() {
