@@ -45,10 +45,18 @@ class VoteComments extends Component {
     const { votes } = this.state;
     return (
       <div>
-        <button onClick={this.handleUpvote} name="Upvote">
+        <button
+          onClick={this.handleUpvote}
+          disabled={votes === 1}
+          name="Upvote"
+        >
           Upvote
         </button>
-        <button onClick={this.handleUpvote} name="Downvote">
+        <button
+          onClick={this.handleUpvote}
+          disabled={votes === -1}
+          name="Downvote"
+        >
           Downvote
         </button>
         <h3>Votes:{votes}</h3>

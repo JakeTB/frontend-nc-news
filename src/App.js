@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./App.css";
+import "./style.css";
 import { Router } from "@reach/router";
 import Home from "./Components/Home";
 import Header from "./Components/Header";
@@ -21,9 +21,9 @@ function App() {
         <Navigation />
       </h2>
 
-      <Router>
+      <Router className="content">
         <Home path="/" />
-        <Articles path="/articles/*" />
+        <Articles path="/articles/*" className="content" />
         <Articles path="/articles/topic/:topic_id" />
 
         <Articles path="/articles/sort/:sort_by" />

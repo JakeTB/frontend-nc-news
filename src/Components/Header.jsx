@@ -1,9 +1,10 @@
 import React from "react";
+import "../style.css";
 
 const Header = () => {
   return (
-    <header>
-      <h1 className="Header">NC NEWS</h1>
+    <header className="nc-news-banner">
+      <h1>NC NEWS</h1>
     </header>
   );
 };

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
 import axios from "axios";
+import "../style.css";
 
 class Navigation extends Component {
   state = {
@@ -16,8 +17,8 @@ class Navigation extends Component {
   render() {
     const { topics } = this.state;
     return (
-      <div>
-        <ul className="NavigationBar">
+      <div className="navigation-bar">
+        <ul>
           <nav>
             <li>
               <Link to="/">Home</Link>
