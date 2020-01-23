@@ -21,7 +21,7 @@ class VoteComments extends Component {
           }
         });
         let votes = correctComment[0].votes;
-        console.log("VOTES", votes);
+
         this.setState({ votes });
       });
   }

@@ -32,7 +32,7 @@ class Navigation extends Component {
             {topics.map(topic => {
               let { slug } = topic;
               return (
-                <Link key={slug} to={`/articles/${slug}/`}>
+                <Link key={slug} to={`/articles/topic/${slug}/`}>
                   <li key={slug}>{slug}</li>
                 </Link>
               );

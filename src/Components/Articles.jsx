@@ -6,6 +6,7 @@ import SingleArticle from "./SingleArticle";
 import ArticlesVotes from "./ArticlesVotes";
 import ArticleDate from "./ArticleDate";
 import ArticleCard from "./ArticleCard";
+import ErrHandler from "./ErrHandler";
 
 class Articles extends Component {
   state = {
@@ -21,7 +22,6 @@ class Articles extends Component {
       });
   }
   componentDidUpdate(prevProps, prevState) {
-    console.log(this.props);
     const { topic_id } = this.props;
 
     if (topic_id !== prevProps.topic_id) {

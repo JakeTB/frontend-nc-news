@@ -3,9 +3,11 @@ import axios from "axios";
 import { Link, Router } from "@reach/router";
 import ArticleComments from "./ArticleComments";
 import PostComment from "./PostComment";
+import ErrHandler from "./ErrHandler";
 class SingleArticle extends Component {
   state = {
-    singleArticle: {}
+    singleArticle: {},
+    message: ""
   };
   componentDidMount() {
     const { id } = this.props;
@@ -15,15 +17,26 @@ class SingleArticle extends Component {
       .then(({ data: { article } }) => {
         let singleArticle = article[0];
         this.setState({ singleArticle });
-      });
+      })
+      .catch(
+        ({
+          response: {
+            data: { message }
+          }
+        }) => {
+          this.setState({ message });
+        }
+      );
   }
   render() {
     let { id } = this.props;
-    const { singleArticle } = this.state;
+    const { singleArticle, message } = this.state;
     const { title, body, topic, author } = singleArticle;
+    console.log(message);
     return (
       <div>
         <h1>{title}</h1>
+        {message && <ErrHandler message={message} />}
         <h3>
           Topic: {topic}
           Author: {author}

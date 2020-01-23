@@ -38,7 +38,7 @@ class UpvoteDownvote extends Component {
 
   render() {
     let { votes, NotVotedUp, NotVotedDown } = this.state;
-    console.log(this.state);
+
     return (
       <div>
         <button

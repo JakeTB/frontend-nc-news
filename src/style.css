@@ -1,11 +1,16 @@
 .Router {
-  background-color: blanchedalmond;
   display: grid;
   grid-template-columns: 2.5fr 10fr 2fr;
   grid-template-rows: 0.5fr 2.5fr;
   grid-template-areas: "blank-space1 nc-news-banner log-in" "navigation-bar content blank-space2";
 }
-
+.App {
+  background-color: #000500;
+  color: #acadbc;
+}
+body {
+  background-color: #000500;
+}
 .nc-news-banner {
   grid-area: nc-news-banner;
 }

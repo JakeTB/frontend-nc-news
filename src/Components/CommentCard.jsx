@@ -37,7 +37,7 @@ class CommentCard extends Component {
   render() {
     const { title, author, body, article_id, comment_id } = this.state.comment;
 
-    const { votes, notDeleted } = this.state;
+    const { votes, notDeleted, username } = this.state;
     return (
       <div>
         <main key={article_id}>
@@ -51,7 +51,11 @@ class CommentCard extends Component {
               votes={votes}
             />
           )}
-          {notDeleted && <button onClick={this.handleDelete}>Delete</button>}
+          {notDeleted && (
+            <button onClick={this.handleDelete} disabled={username !== author}>
+              Delete
+            </button>
+          )}
         </main>
       </div>
     );

@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 
-class ErrHandler extends Component {
-  // state ={}
-  //    msg = "Oops, no route found";
-  //   return (
-  //     <div>
-  //       <h3>{msg}</h3>
-  //     </div>
-  //   );
-}
+const ErrHandler = err => {
+  const { message } = err;
+  console.log(message);
+  let state = {
+    message: message ? message : "Oops route not found"
+  };
+
+  return <div>{<h3>{state.message}</h3>}</div>;
+};
 
 export default ErrHandler;
